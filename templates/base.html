@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <title>{% block title %}Parking System{% endblock %}</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumS4gU5Hc5Z5iZ6q7qoF0V6z3n5VnN3FaF5O3w26"
+    crossorigin="anonymous"
+  >
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <h1>(/)ParLink</h1>
+    <!-- <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        {% if session.role %}
+          {% if session.role == 'admin' %}
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('admin_dashboard') }}">Home</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('user_dashboard') }}">Home</a></li>
+          {% endif %}
+        {% else %}
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a></li>
+        {% endif %}
+      </ul>
+    </div> -->
+  </nav>
+  <div class="container mt-4">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-info">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  <script>
+    window.addEventListener("pageshow", function (event) {
+      if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+        window.location.reload();
+      }
+    });
+  </script>
+
+</body>
+</html>

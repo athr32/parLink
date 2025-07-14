@@ -1,0 +1,196 @@
+/* GENERAL LAYOUT */
+body {
+    background-color: #f4f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.user-header {
+    background-color: #d1f2eb;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-header h2 {
+    color: #117864;
+    font-weight: bold;
+    margin: 0;
+}
+
+.user-header .btn-link {
+    color: #117864;
+    font-weight: bold;
+}
+
+.user-header .btn-link:hover {
+    text-decoration: underline;
+    color: #0b5345;
+}
+
+/* CARD STYLES */
+.card {
+    border-radius: 10px;
+    border: 1px solid #d6eaf8;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #85c1e9;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.card-header.bg-warning {
+    background-color: #f7c55f;
+    color: #fff;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+/* TABLE STYLING */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    min-width: 600px;
+}
+
+.table th {
+    background-color: #d6eaf8;
+    color: #2e4053;
+    padding: 10px;
+}
+
+.table td {
+    background-color: #fff;
+    padding: 10px;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.table tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tr:hover {
+    background-color: #f2f4f4;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    border: 1px solid #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2e86c1;
+}
+
+.btn-success {
+    background-color: #28b463;
+    border: 1px solid #28b463;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #239b56;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border: 1px solid #e74c3c;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.btn-warning {
+    background-color: #f39c12;
+    border: 1px solid #f39c12;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #d68910;
+}
+
+/* FORM */
+.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-inline input.form-control {
+    flex: 1 1 250px;
+    max-width: 100%;
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 768px) {
+    .user-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-header h2 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .user-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .form-inline input.form-control,
+    .form-inline button {
+        width: 100%;
+    }
+
+    .card-header, .card-body {
+        padding: 10px;
+    }
+
+    .table {
+        min-width: 100%;
+    }
+}

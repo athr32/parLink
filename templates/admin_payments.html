@@ -1,0 +1,44 @@
+<div class="admin-header d-flex justify-content-between align-items-center mb-4">
+  <h4 class="text-danger">Welcome to Admin</h4>
+  <div>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-link">Home</a> 
+  </div>
+</div>
+
+<div class="card mx-auto mt-4" style="max-width: 800px;">
+  <div class="card-header bg-warning">
+    <h5 class="mb-0">Pending Payments</h5>
+  </div>
+  <div class="card-body">
+    {% if bookings %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Spot ID</th>
+            <th>Vehicle Number</th>
+            <th>Amount</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in bookings %}
+            <tr>
+              <td>{{ booking.id }}</td>
+              <td>{{ booking.spot_id }}</td>
+              <td>{{ booking.vehicle_number }}</td>
+              <td>₹{{ booking.total_cost }}</td>
+              <td>
+                <form action="{{ url_for('confirm_payment', booking_id=booking.id) }}" method="POST" class="d-inline">
+                  <button type="submit" class="btn btn-success">Confirm Payment</button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No pending payments.</p>
+    {% endif %}
+  </div>
+</div>

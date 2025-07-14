@@ -1,0 +1,22 @@
+<div class="user-header d-flex justify-content-between align-items-center mb-4" style="background-color: #e6f9f4; padding: 15px; border-radius: 10px;">
+  <div class="user-header d-flex justify-content-between align-items-center mb-4">
+    <h2>Welcome, {{fullname}}</h2>
+    <div>
+      <a href="{{ url_for('user_dashboard') }}" class="btn btn-link">Home</a> 
+    </div>
+  </div>
+</div>
+<div class="card mx-auto mt-4">
+  <div class="card-header bg-warning">
+    <h4 class="mb-0">Complete Your Payment</h4>
+  </div>
+  <div class="card-body">
+    <img 
+      src="{{ qr_code_url }}" 
+      alt="Scan to Pay" 
+      style="width: 200px; height: 250px; display: block; margin-bottom: 1rem;"
+    >
+    <p style="color: #e74c3c; margin-bottom: .75rem;">Payment Pending</p>
+    <p>Please make payment and inform admin for confirmation.</p>
+  </div>
+</div>

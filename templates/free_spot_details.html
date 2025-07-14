@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}View/Delete Parking Spot{% endblock %}
+{% block content %}
+
+<div class="card mx-auto mt-4 p-4" style="max-width: 400px;">
+  <h5 class="mb-3">View/Delete Parking Spot</h5>
+  <p><strong>ID:</strong> {{ spot.id }}</p>
+  <p><strong>Status:</strong> <span class="text-success">{{ spot.status }}</span></p>
+
+  <form method="POST" action="{{ url_for('delete_spot', spot_id=spot.id) }}">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Close</a>
+  </form>
+</div>
+
+{% endblock %}

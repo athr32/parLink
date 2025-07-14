@@ -1,0 +1,53 @@
+{# templates/admin_summary.html #}
+{% extends 'base.html' %}
+{% block title %}Admin Summary{% endblock %}
+
+{% block content %}
+  <div class="user-header d-flex justify-content-between align-items-center mb-4" style="background-color:#eef2f7; padding:15px; border-radius:10px;">
+    <h2>Admin Dashboard: Summary</h2>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-link">Back</a>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-header"><strong>Total Revenue by Lot</strong></div>
+        <div class="card-body text-center">
+          <img src="data:image/png;base64,{{ bar_revenue }}" class="img-fluid">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-header"><strong>Daily Aggregate Revenue</strong></div>
+        <div class="card-body text-center">
+          {% if ts_revenue %}
+            <img src="data:image/png;base64,{{ ts_revenue }}" class="img-fluid">
+          {% else %}
+            <p class="text-muted">No data yet.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-header"><strong>Users by Pincode</strong></div>
+        <div class="card-body text-center">
+          <img src="data:image/png;base64,{{ pie_users }}" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-header"><strong>Lot Utilization (%)</strong></div>
+        <div class="card-body text-center">
+          <img src="data:image/png;base64,{{ stacked_util }}" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

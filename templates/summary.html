@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Your Parking Summary{% endblock %}
+
+{% block content %}
+  <div class="user-header d-flex justify-content-between align-items-center mb-4" style="background-color: #e6f9f4; padding: 15px; border-radius: 10px;">
+    <h2>Parking Summary for {{ fullname }}</h2>
+    <a href="{{ url_for('user_dashboard') }}" class="btn btn-link">Back to Dashboard</a>
+  </div>
+
+  {% if bar_chart %}
+    <div class="card mb-4">
+      <div class="card-header"><strong>Lot Usage %</strong></div>
+      <div class="card-body text-center">
+        <img src="data:image/png;base64,{{ pie_chart }}" class="img-fluid">
+      </div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-header"><strong>Hourly Rate by Lot</strong></div>
+      <div class="card-body text-center">
+        <img src="data:image/png;base64,{{ bar_chart }}" class="img-fluid">
+      </div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-header"><strong>Daily Cost History</strong></div>
+      <div class="card-body text-center">
+        <img src="data:image/png;base64,{{ ts_chart }}" class="img-fluid">
+      </div>
+    </div>
+  {% else %}
+    <div class="alert alert-info">No completed bookings yet to summarize.</div>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Manage Spots{% endblock %}
+{% block content %}
+<h3>Spots in {{ lot.name }}</h3>
+<table class="table">
+  <thead><tr><th>ID</th><th>Status</th><th>User</th><th>Actions</th></tr></thead>
+  <tbody>
+    {% for spot in lot.spots %}
+    <tr>
+      <td>{{ spot.id }}</td>
+      <td>{{ spot.status }}</td>
+      <td>{{ spot.user.fullname if spot.user else 'Not booked' }}</td>
+      <td>
+        <!-- {% if spot.status == 'free' %}
+          <form method="POST" action="{{ url_for('book_spot', spot_id=spot.id) }}">
+            <button class="btn btn-success btn-sm">Not Booked</button>
+          </form>
+        {% else %}
+          <form method="POST" action="{{ url_for('release_spot', spot_id=spot.id) }}">
+            <button class="btn btn-warning btn-sm">Booked</button>
+          </form>
+        {% endif %} -->
+        <form method="POST" action="{{ url_for('delete_spot', spot_id=spot.id) }}">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

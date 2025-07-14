@@ -1,0 +1,1 @@
+db.ForeignKey('parking_lot.id')

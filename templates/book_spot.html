@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Book Spot #{{ spot.id }}{% endblock %}
+
+{% block content %}
+<div class="card mx-auto" style="max-width:400px;">
+  <div class="card-header">Spot_id:{{ spot.id }}</div>
+  <div class="card-header">lot_id:{{ spot.lot_id }}</div>
+  <div class="card-header">user_id:{{ session['user_id'] }}</div>
+  <div class="card-body">
+    <form method="POST">
+      <div class="form-group">
+        <label for="vehicle_number">Vehicle Number</label>
+        <input
+          type="text"
+          class="form-control"
+          id="vehicle_number"
+          name="vehicle_number"
+          required
+        >
+      </div>
+      <button type="submit" class="btn btn-success">Confirm</button>
+      <a href="{{ url_for('user_dashboard', lot_id=spot.lot_id) }}" class="btn btn-secondary">
+        Cancel
+      </a>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,146 @@
+/* --- Admin Header Section --- */
+.admin-header {
+  background-color: #e2f7e1;
+  border-radius: 10px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header h4 {
+  color: #d9534f; /* Text color for the "Welcome to Admin" */
+}
+
+/* --- Button Styles --- */
+.btn-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  color: #0056b3;
+}
+
+.add-lot-btn {
+  border-radius: 15px;
+  font-weight: bold;
+  padding: 10px 30px;
+  background-color: #0069d9;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-lot-btn:hover {
+  background-color: #0056b3;
+}
+
+/* --- Parking Lot Card Styles --- */
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h5 {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+}
+
+.card-body p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.card-body .text-success {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* --- Parking Spot Grid --- */
+.spot-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 30px); /* 5 columns */
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* --- Common Spot Styles --- */
+.spot-cell {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* --- Status Badge Styles --- */
+.badge-available {
+  background-color: #8dd99c; /* Green */
+  color: #036703;
+}
+
+.badge-occupied {
+  background-color: #ff8787; /* Red */
+  color: #800000;
+}
+
+/* --- Parking Lot Card Layout --- */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.col-md-4 {
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.card-body a {
+  text-decoration: none;
+}
+
+.card-body a:hover {
+  text-decoration: underline;
+}
+
+.card-body button {
+  background: transparent;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.card-body button:hover {
+  color: #a71d2a;
+}
+
+/* --- Text Centering and Title Styles --- */
+h3.text-center {
+  color: #007bff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+  .col-md-4 {
+    width: 100%;
+  }
+  .row {
+    gap: 10px;
+  }
+}

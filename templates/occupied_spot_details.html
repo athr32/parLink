@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Occupied Parking Spot Details{% endblock %}
+{% block content %}
+
+<div class="card mx-auto mt-4 p-4" style="max-width: 400px;">
+  <h5 class="mb-3">Occupied Parking Spot Details</h5>
+  <p><strong>ID:</strong> {{ spot.id }}</p>
+  <p><strong>Customer ID:</strong> {{ booking.user_id }}</p>
+  <p><strong>Vehicle Number:</strong> {{ booking.vehicle_number }}</p>
+  <p><strong>Date/Time of Parking:</strong> {{ booking.start_time.strftime('%Y-%m-%d %H:%M') }}</p>
+  <!-- {{ estimated_cost }} -->
+  <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Close</a>
+</div>
+
+{% endblock %}

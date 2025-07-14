@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h2>Sign Up</h2>
+    <form method="POST">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Full Name</label>
+          <input type="text" name="fullname" class="form-control" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label>Email</label>
+          <input type="email" name="email" class="form-control" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Password</label>
+          <input type="password" name="password" class="form-control" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label>Confirm Password</label>
+          <input type="password" name="confirm" class="form-control" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input type="text" name="address" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Pincode</label>
+        <input type="text" name="pincode" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <select name="role" class="form-control" required>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+      <button class="btn btn-success">Register</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

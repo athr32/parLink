@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Registered Users{% endblock %}
+
+{% block content %}
+<div class="user-header d-flex justify-content-between align-items-center mb-4" style="background-color: #e6f9f4; padding: 15px; border-radius: 10px;">
+  <h4 style="color: green;">Welcome to Admin</h4>
+  <div>
+    <a href="/admin" class="btn btn-link">Home</a> |
+    <a href="/users" class="btn btn-link">Users</a> |
+    <a href="/admin/search" class="btn btn-link">Search</a> |
+    <a href="{{ url_for('summary') }}" class="btn btn-link">Summary</a> |
+    <a href="/login" class="btn btn-link">Logout</a> |
+    <a href="/edit-profile" class="btn btn-link">Edit Profile</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header text-center bg-light">
+    <h5>Registered Users</h5>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered text-center">
+      <thead class="table-secondary">
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Full Name</th>
+          <th>Address</th>
+          <th>Pin Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.fullname }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.pincode }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
